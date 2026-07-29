@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root {
+  --bg: #0E1420;
+  --surface: #161D2E;
+  --surface-hover: #1E2740;
+  --border: #2A3450;
+  --text: #F4F1EA;
+  --text-muted: #8B93A8;
+  --gold: #CBA135;
+  --live: #FF5A5F;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+a { color: var(--text); text-decoration: none; }
+
+/* layout */
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* nav */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.navbar .brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--gold);
+}
+.navbar-links { display: flex; align-items: center; gap: 1.25rem; }
+.navbar-links a { color: var(--text-muted); font-size: 0.9rem; transition: color 0.15s; }
+.navbar-links a:hover { color: var(--text); }
+
+/* buttons */
+button, .btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+button:hover, .btn:hover { background: var(--gold); color: var(--bg); }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+button.btn-live { border-color: var(--live); color: var(--live); }
+button.btn-live:hover { background: var(--live); color: var(--bg); }
+
+/* inputs */
+input, textarea, select {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  width: 100%;
+}
+input::placeholder, textarea::placeholder { color: var(--text-muted); }
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 420px;
+}
+
+/* price */
+.price {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.6rem;
+  color: var(--gold);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+.price::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='6' viewBox='0 0 40 6'%3E%3Cpath d='M0 3 Q5 0 10 3 T20 3 T30 3 T40 3' stroke='%23CBA135' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  animation: wave-flow 2.5s linear infinite;
+}
+@keyframes wave-flow {
+  from { background-position-x: 0; }
+  to { background-position-x: 40px; }
+}
+
+/* status badges */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.badge-active { background: rgba(255,90,95,0.15); color: var(--live); }
+.badge-pending { background: rgba(203,161,53,0.15); color: var(--gold); }
+.badge-closed { background: rgba(139,147,168,0.15); color: var(--text-muted); }
+
+/* auction card grid */
+.auction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+.auction-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.auction-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.lot-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.error-text { color: var(--live); font-size: 0.85rem; }
+
+.bid-history p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 0;
+  margin: 0;
+}
