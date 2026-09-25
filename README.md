@@ -134,5 +134,5 @@ This app has been verified through a proper local deployment against a live inst
 - No visual styling beyond the app's own design tokens — no component library
 ## License
  
-Built for academic purposes. Feel free to use it as a reference for your own learning.
+Feel free to use it as a reference for your own learning.
  
