@@ -130,7 +130,6 @@ This app has been verified through a proper local deployment against a live inst
 ## Known Limitations
  
 - No dedicated seller dashboard consolidating auction activation and item management into one view — auction activation is currently a control on the auction detail page
-- Bid errors from the WebSocket layer (e.g. "bid too low") aren't yet surfaced nicely in the UI — they currently only show up in the browser console
 - No visual styling beyond the app's own design tokens — no component library
 ## License
  
